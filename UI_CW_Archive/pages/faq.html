@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>FAQ</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <link id="styleSheet" rel="stylesheet" href="../static/css/style.css"/>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+        <script src="../static/javascript/common.js" defer></script>
+    </head>
+    <body>
+
+      <!--Main Navigation-->
+        <nav id="mainNav" class="navbar nav-tabs">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">Home</a>
+                </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="tasks.html">Tasks</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="events.html">Events</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="calendar.html">Calendar </a>
+                </li>
+            </ul>
+
+            <!--Weather Display-->
+            <div class="containter-fluid dropdown ms-auto">
+              <button class="btn dropdown-toggle" type="button" id="citySelectBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                Leicester, UK
+              </button>
+              <ul class="dropdown-menu">
+                <li><input type="text" placeholder="Search for city..." id="citySelect"></li>
+              </ul>            
+              <img id="cloud" src="../images/cloud.jpg" height=50px width=50px alt="Forecast"/>
+            </div>
+
+            <!--Profile Navigation-->
+            <ul class="nav" style="padding-right: 10px;">
+              <li class="nav-item dropdown dropstart">
+                  <a class="nav-link ml-auto" id="profile" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" aria-label="Profile Dropdown"></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="account.html">Account</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a id="defaultStyle" class="dropdown-item">Light Theme</a></li>
+                    <li><a id="darkStyle" class="dropdown-item">Dark Theme</a></li>
+                    <li><a id="highContrast" class="dropdown-item">Contrast Theme</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                  <li style="text-align: center;">Font Size</li>
+                  <li><a id="shrink" class="dropdown-item">Smaller</a></li>
+                  <li><a id="normal" class="dropdown-item">Normal</a></li>
+                  <li><a id="larger" class="dropdown-item">Larger</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="faq.html">Help</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="login.html">logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <H1 style="text-align:center;">FAQ</H1>
+          <!--FAQ Body-->
+        <div class="container">
+          <div class="accordion" id="faqAccordian">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#newList" aria-expanded="false" aria-controls="newList">
+                  How do I add a new Task List?
+                </button>
+              </h2>
+              <div id="newList" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordian">
+                <div class="accordion-body">
+                  <p>Click on "New Task List +" on the left hand sidebar.  This will display the New List form, enter the Name and Deadline for the List.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#modList" aria-expanded="false" aria-controls="modList">
+                  How do I modify a Task List?
+                </button>
+              </h2>
+              <div id="modList" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordian">
+                <div class="accordion-body">
+                    <p>Open the list you wish to modify by clicking the button on the left sidebar.  Click "Modify" button, this will open the modify form.  Change the details and submit.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#newTask" aria-expanded="false" aria-controls="newTask">
+                How do I add a new Task?
+                </button>
+              </h2>
+              <div id="newTask" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordian">
+                <div class="accordion-body">
+                    <p>With the list selected click on "Add Task +".  This will display the New task form, enter the Name and Deadline for the Task.</p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#deleteTask" aria-expanded="false" aria-controls="deleteTask">
+                  How do I delete a specific task?
+                  </button>
+                </h2>
+                <div id="deleteTask" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordian">
+                  <div class="accordion-body">
+                      <p>With the list selected click on the task you wish to delete.  This will activate the delete task button. Confirm deletion to remove the task.</p>
+                  </div>
+                </div>
+              </div>            
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#deleteList" aria-expanded="false" aria-controls="deleteList">
+                  How do I delete a List?
+                  </button>
+                </h2>
+                <div id="deleteList" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordian">
+                  <div class="accordion-body">
+                    <p>With the list selected click on the task you wish to delete.  click the delete list button. Confirm deletion to remove the task.</p>
+                </div>
+                </div>
+              </div>            
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headerSix">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#share" aria-expanded="false" aria-controls="share">
+                  How do I share a task or event?
+                  </button>
+                </h2>
+                <div id="share" class="accordion-collapse collapse" aria-labelledby="headingShare" data-bs-parent="#faqAccordian">
+                  <div class="accordion-body">
+                      <p>With list or event selected click on "Share". Here you can add a new user to share with by entering their email and their permissions. Press save and send to send an email to the new user.</p>
+                  </div>
+                </div>
+              </div>            
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSeven">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#permissions" aria-expanded="false" aria-controls="permissions">
+                  what do the permissions do?
+                  </button>
+                </h2>
+                <div id="permissions" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordian">
+                  <div class="accordion-body">
+                      <p><strong>Read Only:</strong> Allows another user to view your List or Event but they cannot make any changes.</p>
+                      <p><strong>Modify/Delete:</strong> Allows another user full permission to edit and delete an Event or List.</p>
+                      <p><strong>Edit:</strong> Allows another user to make changes or add tasks but does not allow them to delete.</p>
+                  </div>
+                </div>
+              </div>            
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEight">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#calendarEvent" aria-expanded="false" aria-controls="calendarEvent">
+                  how do I add an event to the calendar?
+                  </button>
+                </h2>
+                <div id="calendarEvent" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#faqAccordian">
+                  <div class="accordion-body">
+                      <p>Click on the day or select the timeslot you want to add the Event to.  A pop-up will ask you what action to take, select "Add Event".  A new pop-up will come up that will ask you for event details.  Once complete, submit the new event.</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+          
+    </body>
+</html>

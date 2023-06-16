@@ -1,0 +1,130 @@
+body{
+    background-color: #343a40;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#mainNav{
+    background-color: #212529;    
+}
+
+.accordion-button{
+    color: white;
+    background-color: #343a40;
+}
+
+.accordion-body{
+    background-color: #343a40;
+}
+
+.accordion-button:not(.collapsed){
+    color: rgb(172, 180, 240);
+   background-color: #2b3036;
+}
+
+caption {
+    color: white;
+}
+
+#emptyContainer {
+    text-align: center;
+}
+
+#emptyContainer img {
+    filter:invert(1);
+    display: inline;
+}
+
+#citySelectBtn{
+    color:white;
+}
+
+.nav-link:focus, .nav-link:hover{
+    color:grey
+}
+
+.nav-link{
+    color: white;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    color:black;
+}
+
+#profile{
+    filter: invert(1);
+    background-image: url("../../images/profile.png");
+    background-size: contain;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    height: 75px;
+    width: 75px;
+}
+
+#cloud {
+    filter: invert(1);
+}
+
+.table-dark>tbody>tr.selected>td{
+    background-color: #373b3e;
+}
+
+.tdtitle {
+    width:200px;
+    text-align: center;
+    font-size:larger;
+    font-weight:bold;
+}
+
+.event-table table{
+    width:75%;
+    margin: 0 auto;
+}
+.hide {
+    display: none;
+}
+#newList {
+    height: 100%;
+    width: 100%;
+}
+
+
+td.check{
+    width: 10%;
+}
+
+td.checked{
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+}
+
+caption{
+    color:white;
+    caption-side: top;
+    text-align: center;
+}
+
+#citySelect{
+    border: none;
+    justify-content: right;
+}
+
+#citySelect:focus{
+    border:2px;
+}
+
+.nav-tabs{
+    font-size: larger;
+}
+
+.modal-content{
+    background-color: #343a40;
+}
+
+.fc .fc-col-header-cell-cushion{
+    color: white;
+}
+
+.fc .fc-daygrid-day-number{
+    color: white;
+}

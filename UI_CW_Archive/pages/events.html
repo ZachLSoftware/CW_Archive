@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Events</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <link id="styleSheet" rel="stylesheet" href="../static/css/style.css"/>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+        <!--Custom scripts-->
+        <script type="text/javascript" src="../static/javascript/events.js" defer></script>
+        <script type="text/javascript" src="../static/javascript/share.js" defer></script>
+        <script type="text/javascript" src="../static/javascript/validation.js"></script>
+        <script type="text/javascript" src="../static/javascript/common.js" defer></script>
+
+    </head>
+    <body>
+      <!--Main Navigation-->
+      <nav id="mainNav" class="navbar nav-tabs">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="tasks.html">Tasks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="events.html">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="calendar.html">Calendar </a>
+          </li>
+      </ul>
+
+      <!--Weather Display-->
+      <div class="containter-fluid dropdown ms-auto">
+        <button class="btn dropdown-toggle" type="button" id="citySelectBtn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Profile Dropdown">
+          Leicester, UK
+        </button>
+        <ul class="dropdown-menu">
+          <li><input type="text" placeholder="Search for city..." id="citySelect"></li>
+        </ul>            
+        <img id="cloud" src="../images/cloud.jpg" height=50px width=50px alt="Forecast"/>
+      </div>
+
+      <!--Profile Navigation-->
+      <ul class="nav" style="padding-right: 10px;">
+        <li class="nav-item dropdown dropstart">
+            <a class="nav-link ml-auto" id="profile" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="account.html">Account</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a id="defaultStyle" class="dropdown-item">Light Theme</a></li>
+              <li><a id="darkStyle" class="dropdown-item">Dark Theme</a></li>
+              <li><a id="highContrast" class="dropdown-item">Contrast Theme</a></li>
+              <li><hr class="dropdown-divider"></li>
+            <li style="text-align: center;">Font Size</li>
+            <li><a id="shrink" class="dropdown-item">Smaller</a></li>
+            <li><a id="normal" class="dropdown-item">Normal</a></li>
+            <li><a id="larger" class="dropdown-item">Larger</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="faq.html">Help</a></li>
+            <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="login.html">logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      </nav>
+
+
+      <!--Sidebar Navigation-->
+      <div class="container-fluid">
+        <div class="row me-auto vh-100">
+          <div class="col-2 me-auto border-end border-3 vh-100">
+          <div id="sidebar" class="btn-group-vertical d-flex">
+            <button id='newEventBtn' data-bs-target="#newEventModal" data-bs-toggle="modal" class="btn btn-primary">New Event +</button>
+            <button id='coursework-btn' data-bs-target="#coursework"  data-bs-toggle="collapse" class="btn btn-primary">Coursework Due</button>
+            <button id='hair-btn' data-bs-target="#hair"  data-bs-toggle="collapse" class="btn btn-primary">Hairdresser</button>
+            <button id='dog-btn' data-bs-target="#dog"  data-bs-toggle="collapse" class="btn btn-primary">Dog Groom</button>
+            <button id='bbq-btn' data-bs-target="#bbq"  data-bs-toggle="collapse" class="btn btn-primary">BBQ</button>
+          </div>
+      </div>
+      
+      <!--Event Specific Option Buttons-->
+      <div id="event-container" class="col border">
+        <div id="eventNav" class="row task-nav">
+          <div class="btn-group d-flex col justify-content-end ms-auto">
+            <button id="modifyEventBtn" data-bs-target="#modifyEventModal" data-bs-toggle="modal" class="btn btn-secondary" disabled="">Modify</button>
+            <button id='deleteEventBtn' class="btn btn-secondary" disabled="">Delete Event</button>
+            <button id='shareBtn' data-bs-target="#permissionModal" data-bs-toggle="modal" class="btn btn-secondary" disabled="">Share</button>
+          </div>
+        </div>
+        
+        <!--Event Tables-->
+        <div class="row">
+          <div id="bbq" class="collapse event-table">
+            <table id="bbq-table" class="table table-hover table-bordered">
+              <tbody>
+                  <tr>
+                    <td class="tdtitle">Event</td>
+                    <td id="bbqName" class="value">BBQ</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Start Date and Time</td>
+                    <td id="bbqST" class="value">15/05/2022, 16:30</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">End Date and Time</td>
+                    <td id="bbqET" class="value">15/05/2022, 20:30</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">All Day?</td>
+                    <td id="bbqAllDay" class="value">false</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Reminder</td>
+                    <td id="bbqRem" class="value">60 Minutes Before</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Location</td>
+                    <td id="bbqLoc" class="value">Home</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Tasklist</td>
+                    <td id="bbqTL" class="value">Clean the Garden</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Forecast</td>
+                    <td id="bbqFC" class="value">Partly Cloudy 13C.</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div id="coursework" class="collapse event-table">
+            <table id="coursework-table" class="table table-hover table-bordered">
+              <tbody>
+                  <tr>
+                    <td class="tdtitle">Event</td>
+                    <td id="courseworkName" class="value">Coursework Due</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Start Date and Time</td>
+                    <td id="courseworkST" class="value">13/05/2022, 16:30</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">End Date and Time</td>
+                    <td id="courseworkET" class="value">13/05/2022, 17:00</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">All Day?</td>
+                    <td id="courseworkAllDay" class="value">false</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Reminder</td>
+                    <td id="courseworkRem" class="value">60 Minutes Before</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Location</td>
+                    <td id="courseworkLoc" class="value">None</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Tasklist</td>
+                    <td id="courseworkTL" class="value">None</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Forecast</td>
+                    <td id="courseworkFC" class="value">Sunny 15C.</td>
+                  </tr>
+              </tbody>
+          </table>
+         </div>
+        </div>
+
+        <div class="row">
+          <div id="hair" class="collapse event-table">
+            <table id="hair-table" class="table table-hover table-bordered">
+              <tbody>
+                  <tr>
+                    <td class="tdtitle">Event</td>
+                    <td id="hairName" class="value">Hairdresser</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Start Date and Time</td>
+                    <td id="hairST" class="value">16/05/2022, 09:00</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">End Date and Time</td>
+                    <td id="hairET" class="value">16/05/2022, 11:30</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">All Day?</td>
+                    <td id="hairAllDay" class="value">false</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Reminder</td>
+                    <td id="hairRem" class="value">30 Minutes Before</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Location</td>
+                    <td id="hairLoc" class="value">Town</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Tasklist</td>
+                    <td id="hairTL" class="value">None</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Forecast</td>
+                    <td id="hairFC" class="value">Rain 10C.</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div id="dog" class="collapse event-table">
+            <table id="dog-table" class="table table-hover table-bordered">
+              <tbody>
+                  <tr>
+                    <td class="tdtitle">Event</td>
+                    <td id="dogName" class="value">Dog Groom</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Start Date and Time</td>
+                    <td id="dogST" class="value">17/05/2022, 14:30</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">End Date and Time</td>
+                    <td id="dogET" class="value">17/05/2022, 16:30</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">All Day?</td>
+                    <td id="dogAllDay" class="value">false</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Reminder</td>
+                    <td id="dogRem" class="value">15 Minutes Before</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Location</td>
+                    <td id="dogLoc" class="value">Pets at Home</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Tasklist</td>
+                    <td id="dogTL" class="value">None</td>
+                  </tr>
+                  <tr>
+                    <td class="tdtitle">Forecast</td>
+                    <td id="dogFC" class="value">Sunny 17C.</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="emptyContainer" class="container-fluid justify-content-center">
+            <h1>No Tasks Selected</h1>
+            <img id="emptyImage" src="../images/event-icon.png" width="200px" height="200px" alt="No Events Selected"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--Modal that handles new Events-->
+  <div class="modal fade" id="newEventModal" data-bs-backdrop="static"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="newEventLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newEventLabel">Create New Event</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <form id="newEventForm">
+                <label for="eventName" class="form-label">Event Name* </label>
+                <input type="text" class="form-control" id="eventName" placeholder="New Event Name"/>
+
+                <!--Error Handling-->
+                <br/>
+                <div class="alert alert-success formAlert" id="eventNameSuccess" style="display: none"></div>        
+                <div class="alert alert-warning formAlert" id="eventNameError" style="display: none"></div>
+                <label for="eventStartTime" class="form-label">Start Time*</label>
+                <input type="datetime-local" id="eventStartTime" class="form-control" value="00:00" />
+
+                <!--Error Handling-->
+                <br/>
+                <div class="alert alert-success formAlert" id="eventSTSuccess" style="display: none"></div>        
+                <div class="alert alert-warning formAlert" id="eventSTError" style="display: none"></div>
+                <label for="eventEndTime" class="form-label">End Time*</label>
+                <input type="datetime-local" id="eventEndTime" class="form-control" value="00:00" />
+
+                <!--Error Handling-->
+                <br/>
+                <div class="alert alert-success formAlert" id="eventETSuccess" style="display: none"></div>        
+                <div class="alert alert-warning formAlert" id="eventETError" style="display: none"></div>
+
+
+                <label for="eventAllDay"class="form-label">All Day?</label>
+                <input id='eventAllDay' type="checkbox" class="form-check-input"/>
+                <br/>
+
+                <!--Reminder Select-->
+                <label for="eventReminder" class="form-label">Set a Reminder</label>
+                <select id="eventReminder" class="form-control custom-select">
+                  <option value="None" >None</option>
+                  <option value="15 Minutes Before">15 Minutes Before</option>
+                  <option value="30 Minutes Before">30 Minutes Before</option>
+                  <option value="45 Minutes Before">45 Minutes Before</option>
+                  <option value="60 Minutes Before">60 Minutes Before</option>
+                </select>
+
+                <label for="eventLocation" class="form-label">Location</label>
+                <input id="eventLocation" type="text" class="form-control" placeholder="Enter a location" value='NA'/>
+
+                <!--Task List relation select-->
+                <label for="eventList" class="form-label">Task List</label>
+                <select id="eventList" class="form-control">
+                  <option value="None">None</option>
+                  <option value="Clean the Garden">Clean the Garden</option>
+                  <option value="Clean the House">Clean the House</option>
+                </select>
+              </form>
+                
+            
+            </div>
+          </div>
+        </div>
+        <br/>
+        <div class="alert alert-success formAlert" id="eventSuccess" style="display: none">
+        </div>
+        
+        <div class="alert alert-warning formAlert" id="eventError" style="display: none">
+        </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-secondary formCloseBtn" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="newEventSave" class="btn btn-primary formSubmitBtn" data-bs-dismiss="modal">Submit</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Modify an exsiting Event Modal-->
+  <div class="modal fade" id="modifyEventModal" data-bs-backdrop="static"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="modifyEventLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modEventLabel">Modify Event</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <form id="modifyEventForm">
+                <label for="modEventNameMod" class="form-label">Event Name* </label>
+                <input type="text" class="form-control" id="modEventName" placeholder="New Event Name"/>
+
+                <!--Error Handling-->
+                <br/>
+                <div class="alert alert-success formAlert" id="modEventNameSuccess" style="display: none"></div>        
+                <div class="alert alert-warning formAlert" id="modEventNameError" style="display: none"></div>
+
+                <label for="modEventStartTime" class="form-label">Start Time*</label>
+                <input type="datetime-local" id="modEventStartTime" class="form-control" />
+
+                <!--Error Handling-->
+                <br/>
+                <div class="alert alert-success formAlert" id="modEventSTSuccess" style="display: none"></div>        
+                <div class="alert alert-warning formAlert" id="modEventSTError" style="display: none"></div>
+
+                <label for="modEventEndTime" class="form-label">End Time*</label>
+                <input type="datetime-local" id="modEventEndTime" class="form-control" />
+
+                <!--Error Handling-->
+                <br/>
+                <div class="alert alert-success formAlert" id="modEventETSuccess" style="display: none"></div>        
+                <div class="alert alert-warning formAlert" id="modEventETError" style="display: none"></div>
+
+                <label for="modEventAllDay"class="form-label">All Day?</label>
+                <input id='modEventAllDay' type="checkbox" class="form-check-input"/>
+                <br/>
+                <label for="modEventReminder" class="form-label">Set a Reminder</label>
+                <select id="modEventReminder" class="form-control custom-select">
+                  <option value="None">None</option>
+                  <option value="15">15 Minutes Before</option>
+                  <option value="30">30 Minutes Before</option>
+                  <option value="45">45 Minutes Before</option>
+                  <option value="60">60 Minutes Before</option>
+                </select>
+                <label for="modEventLocation" class="form-label">Location</label>
+                <input id="modEventLocation" type="text" class="form-control" placeholder="Enter a location"/>
+                <label for="modEventList" class="form-label">Task List</label>
+                <select id="modEventList" class="form-control">
+                  <option value="None">None</option>
+                  <option value="Clean the Garden">Clean the Garden</option>
+                  <option value="Clean the House">Clean the House</option>
+                </select>
+              </form>
+                
+            
+            </div>
+          </div>
+        </div>
+        <br/>
+        <div class="alert alert-success formAlert" id="modEventSuccess" style="display: none"></div>        
+        <div class="alert alert-warning formAlert" id="modEventError" style="display: none"></div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-secondary formCloseBtn" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="eventSaveMod" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Sharing Permission Modal-->
+  <div class="modal fade" id="permissionModal" data-bs-backdrop="static"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="newListLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="permissionLabel">Permissions</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+
+            <!--Adding a New Permission-->
+            <div class="row">
+              <h5 class="modal-title">Add Permission</h5>
+              <form id="addPermission">
+                <label for="newEmail" class="form-label">Email: </label>
+                <input type="email" class="form-control" id="newEmail" placeholder="Email:"/>
+                <label for="newPermission" class="form-label">Permission: </label>
+                <select class="form-select" id="newPermission" name="newPermission">
+                  <option value="Read">Read Only</option>
+                  <option value="Modify">Modify/Delete</option>
+                  <option value="Edit">Edit</option>
+                </select>
+              </form>
+              <br/>
+              <div class="alert alert-success formAlert" id="addPermissionSuccess" style="display: none"></div>
+              <div class="alert alert-warning formAlert" id="addPermissionError" style="display: none"></div>
+            </div>
+          </div>
+        <br>
+        <div class="modal-footer">
+          <button type="button" id="addPermissionBtn" class="btn btn-primary formSubmitBtn">Save and Send Email</button>             
+        </div>
+
+        <!--Manage Existing Permissions-->
+          <div class="row">
+          <h5 class="modal-title">Users with Existing Permissions</h5>
+          <form id="existingUsers" class="">
+              <table id='existingPermbbq' class="table table-hover table-bordered hide existingPermTables">
+                <tr>
+                  <!--Exsiting Permission Example-->
+                  <td><label for="exampleUser" class="form-label">ExampleUser@co2014.com</label></td>
+                  <td><select class="form-select" id="exampleUser" name="exampleUser">
+                        <option value="Read">Read Only</option>
+                        <option value="Modify">Modify/Delete</option>
+                        <option value="Edit">Edit</option>
+                      </select></td>
+                  <td><button class="btn btn-secondary removePermission">Remove</button></td>
+                </tr>
+            </table>
+            <table id='existingPermcoursework' class="table table-hover table-bordered hide existingPermTables"><tbody></tbody></table>
+            <table id='existingPermhair' class="table table-hover table-bordered hide existingPermTables"><tbody></tbody></table>
+            <table id='existingPermdog' class="table table-hover table-bordered hide existingPermTables"><tbody></tbody></table>
+            <br>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closePermissionBtn" class="btn btn-primary" data-bs-dismiss="modal">Close</button>             
+          <button type="button" id="modifyPermissionBtn" class="btn btn-primary formSubmitBtn">Update Permissions</button>             
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  
+  </body>
+
+</html>

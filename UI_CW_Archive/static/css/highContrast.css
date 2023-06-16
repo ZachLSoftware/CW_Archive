@@ -1,0 +1,163 @@
+body{
+    background-color: black;
+    color: yellow;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+#mainNav{
+    background-color: black;    
+}
+
+.accordion-button{
+    color: white;
+    background-color: #0b0d0e;
+}
+
+.accordion-body{
+    background-color: #0b0d0e;
+}
+
+.accordion-button:not(.collapsed){
+    color: yellow;
+   background-color: #2b3036;
+}
+#emptyContainer {
+    text-align: center;
+}
+
+#emptyContainer img {
+    filter:invert(1);
+    display: inline;
+}
+
+caption {
+    color: yellow;
+}
+
+#citySelectBtn{
+    color:yellow;
+}
+
+.nav-link:focus, .nav-link:hover{
+    color: yellow
+}
+
+.nav-link{
+    color: #3ff340;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    color:black;
+}
+
+#profile{
+    filter: invert(1);
+    background-image: url("../../images/profile.png");
+    background-size: contain;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    height: 75px;
+    width: 75px;
+}
+
+#cloud {
+    filter: invert(1);
+}
+
+.table-dark>tbody>tr.selected>td{
+    background-color: white;
+    color: black;
+}
+
+.tdtitle {
+    width:200px;
+    text-align: center;
+    font-size:larger;
+    font-weight:bold;
+}
+
+.event-table table{
+    width:75%;
+    margin: 0 auto;
+}
+.hide {
+    display: none;
+}
+#newList {
+    height: 100%;
+    width: 100%;
+}
+
+.fc-next-button{
+    background-color: #b1d583;
+    background-image: none;
+}
+
+.fc-event-title-container{
+    color: black;
+    background-color: #1aebff;
+}
+
+.fc-event-time{
+    color: black;
+    background-color: #57e8f5;
+}
+a {
+    color:#3ff340;
+}
+
+.btn-primary{
+    color: black;
+    background-color: #1aebff;
+}
+
+.btn-secondary{
+    color: #3ff340;
+}
+
+.btn-secondary:hover{
+    color: yellow;
+}
+
+td.check{
+    width: 10%;
+}
+
+td.checked{
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+}
+.table > :not(caption) > * > * {
+    color: yellow;
+}
+caption{
+    color:yellow;
+    caption-side: top;
+    text-align: center;
+}
+
+#citySelect{
+    border: none;
+    justify-content: right;
+}
+
+#citySelect:focus{
+    border:2px;
+}
+
+.nav-tabs{
+    font-size: larger;
+}
+
+.modal-content{
+    background-color: #343a40;
+}
+
+.fc .fc-col-header-cell-cushion{
+    color: yellow;
+}
+
+.fc .fc-daygrid-day-number{
+    color: yellow;
+}
